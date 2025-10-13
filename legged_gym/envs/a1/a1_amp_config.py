@@ -31,7 +31,8 @@ import glob
 
 from legged_gym.envs.base.legged_robot_config import LeggedRobotCfg, LeggedRobotCfgPPO
 
-MOTION_FILES = glob.glob('datasets/mocap_motions/*')
+# MOTION_FILES = glob.glob('datasets/mocap_motions/*')
+MOTION_FILES = glob.glob('datasets/hopturn/*')
 
 
 class A1AMPCfg( LeggedRobotCfg ):
@@ -152,7 +153,7 @@ class A1AMPCfgPPO( LeggedRobotCfgPPO ):
         num_mini_batches = 4
 
     class runner( LeggedRobotCfgPPO.runner ):
-        run_name = ''
+        run_name = 'v1'
         experiment_name = 'a1_amp_example'
         algorithm_class_name = 'AMPPPO'
         policy_class_name = 'ActorCritic'

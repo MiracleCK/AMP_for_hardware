@@ -36,7 +36,6 @@ import torch
 
 from legged_gym.envs.base import observation_buffer
 
-
 # Base class for RL tasks
 class BaseTask():
 

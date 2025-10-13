@@ -139,10 +139,11 @@ class TaskRegistry():
             log_root = os.path.join(LEGGED_GYM_ROOT_DIR, 'logs', train_cfg.runner.experiment_name)
             log_dir = os.path.join(log_root, datetime.now().strftime('%b%d_%H-%M-%S') + '_' + train_cfg.runner.run_name)
         elif log_root is None:
-            log_dir = None
+            # log_dir = None
+            log_dir = 'a'
         else:
             log_dir = os.path.join(log_root, datetime.now().strftime('%b%d_%H-%M-%S') + '_' + train_cfg.runner.run_name)
-        
+
         # print(train_cfg.runner_class_name)
         runner_class = eval(train_cfg.runner_class_name)
         train_cfg_dict = class_to_dict(train_cfg)
@@ -154,7 +155,7 @@ class TaskRegistry():
             resume_path = get_load_path(log_root, load_run=train_cfg.runner.load_run, checkpoint=train_cfg.runner.checkpoint)
             print(f"Loading model from: {resume_path}")
             runner.load(resume_path)
-        return runner, train_cfg
+        return runner, train_cfg, log_dir
 
 # make global task registry
 task_registry = TaskRegistry()

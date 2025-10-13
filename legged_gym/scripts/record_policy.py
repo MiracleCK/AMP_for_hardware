@@ -27,18 +27,15 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # Copyright (c) 2021 ETH Zurich, Nikita Rudin
-
 import cv2
 from legged_gym import LEGGED_GYM_ROOT_DIR
 import os
-
 from isaacgym import gymapi
 from legged_gym.envs import *
 from legged_gym.utils import  get_args, export_policy_as_jit, task_registry, Logger
 
 import numpy as np
 import torch
-
 
 def play(args):
     env_cfg, train_cfg = task_registry.get_cfgs(name=args.task)

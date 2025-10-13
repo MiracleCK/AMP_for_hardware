@@ -49,14 +49,12 @@ from legged_gym.utils.helpers import class_to_dict
 from .legged_robot_config import LeggedRobotCfg
 from rsl_rl.datasets.motion_loader import AMPLoader
 
-
 COM_OFFSET = torch.tensor([0.012731, 0.002186, 0.000515])
 HIP_OFFSETS = torch.tensor([
     [0.183, 0.047, 0.],
     [0.183, -0.047, 0.],
     [-0.183, 0.047, 0.],
     [-0.183, -0.047, 0.]]) + COM_OFFSET
-
 
 class LeggedRobot(BaseTask):
     def __init__(self, cfg: LeggedRobotCfg, sim_params, physics_engine, sim_device, headless):
